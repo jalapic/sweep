@@ -1,0 +1,16 @@
+{
+    "contents" : "#' sweep.js for R\n#'\n#' htmlwidget using the \\href{https://github.com/rileyjshaw/sweep}{sweep.js}\n#' library enabling color transitions through the HSL and HUSL spaces.\n#'\n#' @param selector \\code{String} selector id on which to apply sweep.\n#' @param options \\code{list} configuration options for Sortable.  For a throrough\n#'   discussion, see \\href{https://github.com/rileyjshaw/sweep#usage}{Sweep Usage}.\n#'   Below is the list of supported options.\n#'   \\itemize{\n#'      \\item target\n#'      \\item properties\n#'      \\item fromColor\n#'      \\item toColor\n#'      \\item options\n#'      \\item callback\n#'      \\item direction\n#'      \\item space\n#'   }#'\n#' @import htmlwidgets\n#'\n#' @export\n\nsweep <- function(\n  selector\n  , options = NULL\n  , width = NULL\n  , height = NULL\n) {\n\n  # forward options using x\n  x = list(\n    selector = selector\n    , options = options\n  )\n\n  # create widget\n  htmlwidgets::createWidget(\n    name = 'sweep',\n    x,\n    width = width,\n    height = height,\n    package = 'sweep'\n  )\n}\n\n#' Widget output function for use in Shiny\n#'\n#' @export\nsweepOutput <- function(outputId, width = '100%', height = '400px'){\n  shinyWidgetOutput(outputId, 'sweep', width, height, package = 'sweep')\n}\n\n#' Widget render function for use in Shiny\n#'\n#' @export\nrenderSweep <- function(expr, env = parent.frame(), quoted = FALSE) {\n  if (!quoted) { expr <- substitute(expr) } # force quoted\n  shinyRenderWidget(expr, sweepOutput, env, quoted = TRUE)\n}\n",
+    "created" : 1425777794772.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4170657556",
+    "id" : "7E837F94",
+    "lastKnownWriteTime" : 1425781034,
+    "path" : "C:/Users/curley1/Dropbox/Work/R/htmlwidgets/sweep/sweep/R/sweep.R",
+    "project_path" : "R/sweep.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

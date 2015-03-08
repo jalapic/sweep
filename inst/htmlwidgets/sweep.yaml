@@ -2,4 +2,4 @@ dependencies:
   - name: sweep.js
     version: 1.0
     src: htmlwidgets/lib/sweep
-    script: sweep.js
+    script: sweep.min.js
